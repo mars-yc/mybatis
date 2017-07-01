@@ -77,7 +77,7 @@ public class MyBatisUserDaoImpl {
 
     private <T> T execute(UserDaoCallBack<T> action) {
         SqlSession sqlSession = null;
-        T ret;
+        T ret = null;
         try {
             sqlSession = sqlSessionFactory.openSession();
             if(logger.isDebugEnabled()) {
@@ -86,6 +86,9 @@ public class MyBatisUserDaoImpl {
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
             ret = action.doInAction(mapper);
             sqlSession.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
         } finally {
             if(null != sqlSession) {
                 sqlSession.close();
