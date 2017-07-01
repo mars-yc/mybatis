@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 
 import java.util.List;
 
-public class MyBatisUserDaoImpl implements UserMapper {
+public class MyBatisUserDaoImpl {
 
     private static final Logger logger = Logger.getLogger(MyBatisUserDaoImpl.class);
     private SqlSessionFactory sqlSessionFactory;
@@ -52,7 +52,7 @@ public class MyBatisUserDaoImpl implements UserMapper {
     public int update(final User user) {
         return this.execute(new UserDaoCallBack<Integer>() {
             public Integer doInAction(UserMapper mapper) {
-                return mapper.delete(user);
+                return mapper.update(user);
             }
         });
     }

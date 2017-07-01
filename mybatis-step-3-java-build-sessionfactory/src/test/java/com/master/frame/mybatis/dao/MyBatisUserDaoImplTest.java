@@ -3,7 +3,6 @@ package com.master.frame.mybatis.dao;
 import com.master.frame.mybatis.domain.User;
 import com.master.frame.mybatis.mapper.UserMapper;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -53,7 +52,7 @@ public class MyBatisUserDaoImplTest {
         TransactionFactory transactionFactory = new JdbcTransactionFactory();
         Environment environment = new Environment("development", transactionFactory, dataSource);
         Configuration configuration = new Configuration(environment);
-        configuration.getTypeAliasRegistry().registerAlias("com.master.frame.mybatis.mapper.User", User.class);
+        //configuration.getTypeAliasRegistry().registerAlias("com.master.frame.mybatis.mapper.User", User.class);
         configuration.addMapper(UserMapper.class);
 
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
@@ -92,7 +91,7 @@ public class MyBatisUserDaoImplTest {
     @Test
     public void test6Delete() throws Exception {
         User user = new User("lily", "女", "lily@hot.mail");
-        Integer cnt = userDao.delete(user);
+        userDao.delete(user);
     }
 
     @Test

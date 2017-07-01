@@ -50,7 +50,7 @@ public class MyBatisUserDaoImpl implements UserDao {
     public int update(final User user) {
         return this.execute(new UserDaoCallBack<Integer>() {
             public Integer doInAction(SqlSession sqlSession) {
-                return sqlSession.delete("UserMapper.update", user);
+                return sqlSession.update("UserMapper.update", user);
             }
         });
     }
