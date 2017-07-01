@@ -8,6 +8,7 @@
     <modules>
         <module>mybatis-step-1-sqlsession</module>
         <module>mybatis-step-2-mapperclass</module>
+        <module>mybatis-step-3-java-build-sessionfactory</module>
     </modules>
     <packaging>pom</packaging>
 
