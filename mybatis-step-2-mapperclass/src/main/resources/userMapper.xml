@@ -5,16 +5,18 @@
     <select id="load" resultType="com.master.frame.mybatis.domain.User">
         select * from mybatis_user_tbl
     </select>
-    <select id="findUserByUserName" parameterType="String" resultType="com.master.frame.mybatis.domain.User">
+    <!-- typeAlias user is defined in config.xml -->
+    <select id="findUserByUserName" parameterType="java.lang.String" resultType="user">
         select * from mybatis_user_tbl where username like '%${value}%'
     </select>
-    <insert id="add" parameterType="com.master.frame.mybatis.domain.User">
+    <insert id="add" parameterType="user">
         insert into mybatis_user_tbl(username,gender,email) values(#{username},#{gender},#{email})
     </insert>
-    <delete id="delete" parameterType="java.lang.String">
+    <!-- string is an alias defined by mybatis. please see TypeAliasRegistry -->
+    <delete id="delete" parameterType="String">
         delete from mybatis_user_tbl where username=#{username}
     </delete>
-    <update id="update" parameterType="com.master.frame.mybatis.domain.User">
+    <update id="update" parameterType="user">
         update mybatis_user_tbl set gender=#{gender},email=#{email} where username=#{username}
     </update>
     <update id="createUserTbl">
