@@ -23,8 +23,8 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="userMapper.xml"/>
-        <mapper resource="productMapper.xml"/>
-        <!--<package name="com.master.frame.mybatis.domain"/>-->
+        <!-- comment below when testing the Category DAO layer -->
+        <!--<mapper resource="userMapper.xml"/>-->
+        <package name="com.master.frame.mybatis.mapper"/>
     </mappers>
 </configuration>
