@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"/>
+    <typeAliases>
+        <typeAlias alias="User" type="com.master.frame.mybatis.domain.User"/>
+    </typeAliases>
+    <typeHandlers>
+        <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.master.frame.mybatis.domain.Gender"/>
+    </typeHandlers>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="${SYSTEM_DB_DRIVER}" />
+                <property name="url" value="${SYSTEM_DB_URL}" />
+                <property name="username" value="${SYSTEM_DB_USERNAME}" />
+                <property name="password" value="${SYSTEM_DB_PASSWORD}" />
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="userMapper.xml"/>
+    </mappers>
+</configuration>
