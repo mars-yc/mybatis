@@ -14,14 +14,19 @@ import java.util.List;
  */
 public interface ProductMapper {
 
-    @Select(value = "select * from mybatis_product_tbl")
+    /**
+     * If the column name and the fields' name not same<br>
+     * Need to specify the name to be same as the pojos' fields, use as....<br>
+     * Otherwise, can't map the column to the fields
+     */
+    @Select(value = "select id, category, buy_date as buyDate from mybatis_product_tbl")
     List<Product> load();
-    @Insert(value = "insert into mybatis_product_tbl(category,buyDate) values(#{category},#{buyDate})")
+    @Insert(value = "insert into mybatis_product_tbl(category,buy_date) values(#{category},#{buyDate})")
     int add(Product product);
     @Update(value = "create table mybatis_product_tbl (\n" +
             "        id int not null auto_increment,\n" +
             "        category varchar(20) not null,\n" +
-            "        buyDate datetime,\n" +
+            "        buy_date datetime,\n" +
             "        primary key (id))")
     void createProductTbl();
     @Update(value = "drop table if exists mybatis_product_tbl")
