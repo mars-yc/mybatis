@@ -16,7 +16,7 @@ import java.util.List;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MyBatisUserDaoImplTest {
 
-    private static final String MYBATIS_CONFIGURATION_FILE = "/config.xml";
+    private static final String MYBATIS_CONFIGURATION_FILE = "/mybatis-config.xml";
     private static final Logger logger = Logger.getLogger(MyBatisUserDaoImplTest.class);
     private static SqlSessionFactory sqlSessionFactory;
     private static MyBatisUserDaoImpl userDao;
@@ -37,7 +37,7 @@ public class MyBatisUserDaoImplTest {
     public static void setUpEnvWithResource() {
         InputStream inputStream = null;
         try {
-            inputStream = Resources.getResourceAsStream("config.xml");
+            inputStream = Resources.getResourceAsStream("mybatis-config.xml");
         } catch (IOException e) {
             e.printStackTrace();
         }

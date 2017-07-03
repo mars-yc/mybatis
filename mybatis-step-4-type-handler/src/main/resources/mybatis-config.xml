@@ -3,10 +3,13 @@
 <configuration>
     <properties resource="db.properties"/>
     <typeAliases>
-        <typeAlias alias="User" type="com.master.frame.mybatis.domain.User"/>
+        <!--<typeAlias alias="User" type="com.master.frame.mybatis.domain.User"/>
+        <typeAlias type="com.master.frame.mybatis.domain.Product" alias="product"/>-->
+        <package name="com.master.frame.mybatis.domain"/>
     </typeAliases>
     <typeHandlers>
         <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.master.frame.mybatis.domain.Gender"/>
+        <typeHandler handler="com.master.frame.mybatis.handler.CategoryTypeHandler" javaType="com.master.frame.mybatis.domain.Category"/>
     </typeHandlers>
     <environments default="development">
         <environment id="development">
@@ -21,5 +24,7 @@
     </environments>
     <mappers>
         <mapper resource="userMapper.xml"/>
+        <mapper resource="productMapper.xml"/>
+        <!--<package name="com.master.frame.mybatis.domain"/>-->
     </mappers>
 </configuration>

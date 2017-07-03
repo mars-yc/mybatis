@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.master.frame.mybatis.mapper.ProductMapper">
+    <insert id="add" parameterType="product">
+        insert into mybatis_product_tbl(category,buyDate) values(#{category},#{buyDate})
+    </insert>
+    <select id="load" resultType="product">
+        select * from mybatis_product_tbl
+    </select>
+    <update id="createProductTbl">
+        create table mybatis_product_tbl (
+        id int not null auto_increment,
+        category varchar(20) not null,
+        buyDate datetime,
+        primary key (id))
+    </update>
+    <update id="dropIfExistProductTbl">
+        drop table if exists mybatis_product_tbl
+    </update>
+</mapper>

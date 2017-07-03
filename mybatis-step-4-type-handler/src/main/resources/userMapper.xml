@@ -5,7 +5,7 @@
     <select id="load" resultType="com.master.frame.mybatis.domain.User">
         select * from mybatis_user_tbl
     </select>
-    <!-- typeAlias user is defined in config.xml, all alias is case insensitive -->
+    <!-- typeAlias user is definedmybatis-config.xml.xml, all alias is case insensitive -->
     <select id="findUserByUserName" parameterType="java.lang.String" resultType="user">
         select * from mybatis_user_tbl where username like '%${value}%'
     </select>
