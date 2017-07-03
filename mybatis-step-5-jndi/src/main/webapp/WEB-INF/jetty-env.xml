@@ -1,0 +1,13 @@
+<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+    <New id="PureDb" class="org.mortbay.jetty.plus.naming.Resource">
+        <Arg>jdbc/pure</Arg>
+        <Arg>
+            <New class="org.apache.commons.dbcp.BasicDataSource">
+                <Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+                <Set name="url">jdbc:mysql://www.eduoer.com:3306/pure?useUnicode=true&amp;characterEncoding=utf8</Set>
+                <Set name="username">admin</Set>
+                <Set name="password">admin976</Set>
+            </New>
+        </Arg>
+    </New>
+</Configure>
